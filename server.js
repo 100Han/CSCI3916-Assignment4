@@ -133,7 +133,12 @@ router.route("/movies").get(authJwtController.isAuthenticated,function(req,res)
         movieDetail.title=req.body.title;
     }
     // find movies data 
-    if(req.body.reviews!=true)
+   // if(req.body.reviews!=true)
+   // if(req.query.reviews!='true' && req.body.reviews!=true)
+    if(req.query.reviews!='true' )
+
+
+    
     {
         movieModel.find(movieDetail,'title year_released genre actors', (err,doc)=>
         {
